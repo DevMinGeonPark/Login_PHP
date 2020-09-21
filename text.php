@@ -6,7 +6,12 @@
   </head>
   <body>
     <?php
-    echo date('Y-m-d H:i:s');
+    $a = scandir('data');
+    var_dump($a).'<br>';
+    echo count($a);
      ?>
+     <?php
+     \"<li> $a </li>\"
+      ?>
   </body>
 </html>

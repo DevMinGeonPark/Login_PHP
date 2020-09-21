@@ -5,13 +5,14 @@
     <title></title>
   </head>
   <body>
+    <h1>Comparison Operators &amp; Boolean data type</h1>
     <?php
-    function sum2($left, $right){
-      return $left+$right;
+    if () {
+      echo '2<br>';
+    } else {
+      echo '2-2<br>';
     }
-
-    print(sum2(2,4));
-
+    echo '3<br>';
      ?>
   </body>
 </html>
