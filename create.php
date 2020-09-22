@@ -46,6 +46,7 @@ function print_list() {
             print_list();
            ?>
         </ol>
+        <a href="create.php">create</a>
       </div>
       <!-- in -->
       <div id="present">
@@ -56,18 +57,6 @@ function print_list() {
           <?php
           print_decription();
          ?>
-        <p id = "create"><strong><a href="create.php">create</a></strong></p>
-        <form action="create_process.php" method="post">
-          <p id = "titleput">
-            <input type="text" name="title" value="Title">
-          </p>
-          <p>
-            <textarea name="description" placeholder="Description"></textarea>
-          </p>
-          <p>
-            <input type="submit">
-          </p>
-        </form>
       </div>
   </div>
   </body>
