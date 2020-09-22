@@ -9,7 +9,7 @@ function print_title()
 }
 function print_decription() {
   if (isset($_GET['id'])) {
-    echo file_get_contentS("data/".$_GET['id']);
+    echo file_get_contents("data/".$_GET['id']);
   } else {
     echo "Hello, PHP";
   }
@@ -32,8 +32,8 @@ function print_list() {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-    <title>web</title>
+    <link rel="stylesheet" href="style.css?after">
+    <title><?php print_title() ?></title>
   </head>
   <body>
     <!-- head -->
@@ -52,22 +52,24 @@ function print_list() {
         <h2>
           <?php
           print_title();
-           ?> </h2>
+           ?>
+        </h2>
           <?php
           print_decription();
          ?>
-        <p id = "create"><strong><a href="create.php">create</a></strong></p>
-        <form action="create_process.php" method="post">
-          <p id = "titleput">
-            <input type="text" name="title" value="Title">
-          </p>
-          <p>
-            <textarea name="description" placeholder="Description"></textarea>
-          </p>
-          <p>
-            <input type="submit">
-          </p>
-        </form>
+         <div id = "laycon">
+           <div>
+            <p class="titlemar"><strong><a href="create.php">create</a></strong></p>
+          </div>
+          <div>
+            <?php
+              if (isset($_GET['id'])) { ?>
+                <p class = "titlemar"><strong><a href="update.php?id=<?=$_GET['id']?>">update</a></strong></p>
+            <?php } ?>
+            <form action="update.php" method="post">
+            </form>
+          </div>
+        </div>
       </div>
   </div>
   </body>

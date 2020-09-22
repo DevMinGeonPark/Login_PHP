@@ -29,10 +29,14 @@ a {
   #olstyle {
     padding-left:22px;
   }
-  #create {
-    margin-bottom: 0px;
+  #laycon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
-  /* #titleput {
+  .titlemar {
+    margin-bottom:2px;
+  }
+  .putmar {
     margin-top: 0px;
-  } */
+  }
 </style>

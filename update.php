@@ -1,4 +1,3 @@
-
 <?php
 function print_title()
 {
@@ -28,11 +27,12 @@ function print_list() {
 
  ?>
 
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?ater">
     <title>web</title>
   </head>
   <body>
@@ -47,6 +47,7 @@ function print_list() {
            ?>
         </ol>
       </div>
+      <!-- in -->
       <div id="present">
         <h2>
           <?php
@@ -60,7 +61,7 @@ function print_list() {
             <p class="titlemar"><strong><a href="create.php">create</a></strong></p>
             <form action="create_process.php" method="post">
               <p class = "putmar">
-                <input type="text" name="title" placeholder="Title">
+                <input type="text" name="title" value="Title">
               </p>
               <p>
                 <textarea name="description" placeholder="Description"></textarea>
@@ -69,6 +70,22 @@ function print_list() {
                 <input type="submit">
               </p>
             </form>
+          </div>
+          <div>
+            <?php
+              if (isset($_GET['id'])) { ?>
+                <p class = "titlemar"><strong><a href="update.php?id=<?=$_GET['id']?>">update</a></strong></p>
+            <?php } ?>
+            <form action="create_process.php" method="post">
+              <p class = "putmar">
+                <input type="text" name="title" placeholder="Title" value="<?php print_title(); ?>">
+              </p>
+              <p>
+                <textarea name="description" placeholder="Description"></textarea>
+              </p>
+              <p>
+                <input type="submit">
+              </p>
           </div>
         </div>
       </div>
