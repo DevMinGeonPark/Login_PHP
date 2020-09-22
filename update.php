@@ -1,17 +1,18 @@
 <?php
+if (isset($_GET['id'])) {
+  $nowid = $_GET['id'];
+} else {
+  $nowid = "nonid";
+}
 function print_title()
 {
   if (isset($_GET['id'])) {
     echo $_GET['id'];
-  } else {
-    echo "Welcome";
   }
 }
 function print_decription() {
   if (isset($_GET['id'])) {
-    echo file_get_contentS("data/".$_GET['id']);
-  } else {
-    echo "Hello, PHP";
+    echo file_get_contents("data/".$_GET['id']);
   }
 }
 function print_list() {
@@ -19,14 +20,15 @@ function print_list() {
   for ($i=0; $i < count($dlist); $i++) {
     if ($dlist[$i] != '.') {
       if ($dlist[$i] != '..') {
-        echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        if ($dlist[$i] != 'home') {
+          echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        }
       }
     }
   }
 }
 
  ?>
-
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

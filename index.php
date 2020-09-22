@@ -1,17 +1,14 @@
 <?php
+$nowid = $_GET['id'];
 function print_title()
 {
   if (isset($_GET['id'])) {
     echo $_GET['id'];
-  } else {
-    echo "Welcome";
   }
 }
 function print_decription() {
   if (isset($_GET['id'])) {
     echo file_get_contents("data/".$_GET['id']);
-  } else {
-    echo "Hello, PHP";
   }
 }
 function print_list() {
@@ -19,7 +16,9 @@ function print_list() {
   for ($i=0; $i < count($dlist); $i++) {
     if ($dlist[$i] != '.') {
       if ($dlist[$i] != '..') {
-        echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        if ($dlist[$i] != 'home') {
+          echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        }
       }
     }
   }
@@ -37,7 +36,7 @@ function print_list() {
   </head>
   <body>
     <!-- head -->
-    <h1><a href="index.php">WEB</a></h1>
+    <h1><a href="index.php?id=home">WEB</a></h1>
     <div id="grid">
       <!-- index-->
       <div id="olstyle">
@@ -59,12 +58,12 @@ function print_list() {
          ?>
          <div id = "laycon">
            <div>
-            <p class="titlemar"><strong><a href="create.php">create</a></strong></p>
+             <p class="titlemar"><strong><a href="create.php?id=<?php echo $nowid ?>">create</a></strong></p>
           </div>
           <div>
             <?php
               if (isset($_GET['id'])) { ?>
-                <p class = "titlemar"><strong><a href="update.php?id=<?=$_GET['id']?>">update</a></strong></p>
+                <p class = "titlemar"><strong><a href="update.php?id=<?=$_GET['id'];?>">update</a></strong></p>
             <?php } ?>
             <form action="update.php" method="post">
             </form>

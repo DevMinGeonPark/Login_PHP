@@ -1,18 +1,18 @@
-
 <?php
+if (isset($_GET['id'])) {
+  $nowid = $_GET['id'];
+} else {
+  $nowid = "nonid";
+}
 function print_title()
 {
   if (isset($_GET['id'])) {
     echo $_GET['id'];
-  } else {
-    echo "Welcome";
   }
 }
 function print_decription() {
   if (isset($_GET['id'])) {
-    echo file_get_contentS("data/".$_GET['id']);
-  } else {
-    echo "Hello, PHP";
+    echo file_get_contents("data/".$_GET['id']);
   }
 }
 function print_list() {
@@ -20,7 +20,9 @@ function print_list() {
   for ($i=0; $i < count($dlist); $i++) {
     if ($dlist[$i] != '.') {
       if ($dlist[$i] != '..') {
-        echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        if ($dlist[$i] != 'home') {
+          echo "<li> <a href=\"index.php?id=$dlist[$i]\">$dlist[$i]</a> </li>\n";
+        }
       }
     }
   }
@@ -33,11 +35,11 @@ function print_list() {
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <title>web</title>
+    <title><?php print_title(); ?></title>
   </head>
   <body>
     <!-- head -->
-    <h1><a href="index.php">WEB</a></h1>
+    <h1><a href="index.php?id=home">WEB</a></h1>
     <div id="grid">
       <!-- index-->
       <div id="olstyle">
