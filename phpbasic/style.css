@@ -33,10 +33,10 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .titlemar {
+  .functionlayout {
     margin-bottom:2px;
   }
-  .putmar {
+  .putlayout {
     margin-top: 0px;
   }
 </style>
